@@ -28,7 +28,7 @@ body:
     id: windows
     attributes:
       label: Windows version
-      placeholder: Windows 11 23H2
+      placeholder: Windows 10 22H2
     validations:
       required: true
   - type: textarea
