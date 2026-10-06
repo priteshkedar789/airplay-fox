@@ -57,7 +57,7 @@ Settings are saved in `%APPDATA%\AirplayFox\settings.json`.
 
 Latency is how long the speaker waits before playing, and it is also its safety margin: if a Wi-Fi packet is lost, the speaker asks for it again, and the resend must arrive before the speaker needs it. Lower = snappier but less margin.
 
-- **0.25 s** worked cleanly with almost no visible sync lag on the author's HomePod, even though that link was losing around 15 % of packets (every one was resent in time). Start there for video.
+- **0.25 s** worked cleanly with almost no visible sync lag on the author's HomePod, even though that link was losing around 15 % of packets (every one was resent in time). Start there for video. **Auto** is deliberately cautious and may pick a longer value than you need, so if Auto feels laggy, pick a fixed value.
 - If you hear crackle or dropouts, step up (0.50 → 0.75 → 1.00 s).
 - For music only, a higher value is fine and the most robust.
 - Your result depends on your Wi-Fi. A speaker close to the router, or the router on a quiet channel, helps more than any setting.
@@ -68,6 +68,7 @@ Latency is how long the speaker waits before playing, and it is also its safety 
 - **Connected but silent** — make sure something is actually playing on the *default* Windows output device; turn off *Mute this PC's speakers*; check the speaker volume in the menu.
 - **Crackle / dropouts** — raise the latency one step; prefer Ethernet on the PC and a strong signal at the speaker.
 - **Fox shows but menu says "Reconnecting"** — the speaker stopped answering; it retries with backoff. See the log.
+- **Nothing happens when I start it** — it is a tray app and only one copy runs at a time; the fox from the first start is probably already in the tray (check the `^` overflow).
 - **Anything else** — attach `%APPDATA%\AirplayFox\airplayfox.log` to an issue.
 
 ## Build from source
@@ -87,8 +88,11 @@ dotnet test tests/AirplayFox.Tests          # ring buffer, drift rule, tuner, 48
 
 ```powershell
 AirplayFox.exe --cli --device Bedroom --latency 0.25 --seconds 30 --dump sent.wav
+pip install numpy
 python tools/analyze_sent.py sent.wav        # with a steady test tone playing: counts clicks in exactly what was sent
 ```
+
+`AirplayFox.exe` is a windowed app, so `--cli` prints to the log (`%APPDATA%\AirplayFoxirplayfox.log`) rather than the console; redirect its output (`> out.txt`) if you want it on screen.
 
 ## How it works
 
