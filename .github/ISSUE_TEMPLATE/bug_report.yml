@@ -1,0 +1,49 @@
+name: Bug report
+description: Something does not work as expected
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, what you got.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: AirplayFox version
+      placeholder: v1.0.0
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: Windows 10 22H2
+    validations:
+      required: true
+  - type: input
+    id: speaker
+    attributes:
+      label: Speaker model and firmware
+      placeholder: HomePod, firmware version
+  - type: input
+    id: latency
+    attributes:
+      label: Latency setting
+      placeholder: Auto, 0.25 s, custom 0.35 s
+  - type: dropdown
+    id: network
+    attributes:
+      label: PC connection
+      options:
+        - Wi-Fi
+        - Ethernet
+        - Not sure
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: Paste or attach %APPDATA%\AirplayFox\airplayfox.log
+      render: text
