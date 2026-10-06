@@ -14,6 +14,9 @@
     <Description>Stream Windows system audio to a HomePod / AirPlay 2 speaker from the system tray.</Description>
     <Copyright>Copyright (c) 2026 Pritesh Kedar</Copyright>
     <RepositoryUrl>https://github.com/priteshkedar789/airplay-fox</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/priteshkedar789/airplay-fox</PackageProjectUrl>
+    <PackageTags>airplay;airplay2;homepod;wasapi;windows</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
