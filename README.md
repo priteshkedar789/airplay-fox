@@ -11,6 +11,8 @@ No iTunes, no Apple software, no virtual audio cable and no driver to install. T
 ![.NET 8](https://img.shields.io/badge/.NET-8-512BD4)
 [![Latest release](https://img.shields.io/github/v/release/priteshkedar789/airplay-fox)](https://github.com/priteshkedar789/airplay-fox/releases/latest)
 
+![AirplayFox tray menu on Windows 10 while streaming to a HomePod named Bedroom: Speakers, Disconnect, Latency, Speaker volume, mute PC speakers, Open log, Exit](docs/tray-menu-streaming.png)
+
 ## Features: Windows to HomePod audio streaming
 
 - **Tray-only app** — right-click the fox: pick a speaker, set latency, set speaker volume. Double-click to connect/disconnect.
@@ -45,6 +47,10 @@ Get-FileHash .\AirplayFox-*.zip -Algorithm SHA256
 1. Start `AirplayFox.exe`. A fox appears in the system tray (click the `^` near the clock if you don't see it; drag it onto the taskbar to keep it visible).
 2. Right-click the fox → **Speakers** → choose your HomePod. The fox turns colour when audio is streaming (grey = not connected).
 3. Play anything on your PC.
+
+| Not connected | Streaming | Speaker volume menu |
+|:---:|:---:|:---:|
+| <img src="docs/tray-icon-idle.png" alt="AirplayFox grey fox icon in the Windows 10 system tray with the tooltip 'AirplayFox - not connected'" width="220"> | <img src="docs/tray-icon-connected.png" alt="AirplayFox orange fox icon in the Windows 10 system tray with the tooltip 'AirplayFox - Bedroom, 180 ms'" width="220"> | <img src="docs/tray-menu-volume.png" alt="AirplayFox Speaker volume submenu on Windows 10 listing 15, 25, 33, 50, 70 and 100 percent" width="300"> |
 
 | Menu item | What it does |
 |---|---|

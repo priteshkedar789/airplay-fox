@@ -19,7 +19,3 @@ dotnet test tests/AirplayFox.Tests
 ## Pull requests
 
 Keep changes focused, run the tests, and describe what you tried on real hardware. By contributing you agree your work is released under the [MIT license](LICENSE).
-
-## Screenshots wanted
-
-The README has no screenshot yet. A real screenshot of the tray menu on Windows is welcome.
