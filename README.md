@@ -150,7 +150,7 @@ WASAPI loopback ─▶ RateConverter ─▶ PcmRing ─▶ PacketPump ─▶ RTP
 | | |
 |---|---|
 | PC | Windows 10 Pro (build 19045), wired Ethernet |
-| Speaker | HomePod mini, on Wi-Fi (firmware version not recorded) |
+| Speaker | HomePod mini (model MY5H2HN/A), software 26.6 (23L773), on Wi-Fi |
 | Last checked | 2026-10-06, v1.0.0 |
 
 Written and maintained by Pritesh Kedar. Compatibility reports for other speakers and Windows versions are welcome through the [issue templates](https://github.com/priteshkedar789/airplay-fox/issues/new/choose).
