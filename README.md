@@ -2,7 +2,7 @@
 
 **AirplayFox is a free, open-source Windows tray app that plays your PC's system audio on a HomePod over AirPlay 2.** Whatever the PC plays (YouTube, Spotify, games, calls) comes out of the speaker, with a latency you set between 0 and 4 seconds.
 
-No iTunes, no Apple software, no virtual audio cable and no driver to install. Tested on one HomePod from Windows 10; other AirPlay 2 speakers are untested.
+No iTunes, no Apple software, no virtual audio cable and no driver to install. Tested on one HomePod mini from Windows 10; other AirPlay 2 speakers are untested.
 
 **[Download the latest release for Windows](https://github.com/priteshkedar789/airplay-fox/releases/latest)** (zip, unsigned: Windows SmartScreen will warn, see the install steps below). Free and MIT-licensed.
 
@@ -23,7 +23,7 @@ No iTunes, no Apple software, no virtual audio cable and no driver to install. T
 - **Optional "mute this PC's speakers while streaming"** — so you don't hear the PC and the speaker half a second apart.
 - Follows the Windows default output device and restarts capture if you change it.
 
-Tested against a HomePod from a Windows 10 PC. Other AirPlay 2 speakers that accept HomeKit *transient* pairing may work but have not been tested.
+Tested against a HomePod mini from a Windows 10 PC. Other AirPlay 2 speakers that accept HomeKit *transient* pairing may work but have not been tested.
 
 ## Download and install (Windows, no iTunes)
 
@@ -67,7 +67,7 @@ Settings are saved in `%APPDATA%\AirplayFox\settings.json`.
 
 Latency is how long the speaker waits before playing, and it is also its safety margin: if a Wi-Fi packet is lost, the speaker asks for it again, and the resend must arrive before the speaker needs it. Lower = snappier but less margin.
 
-- **0.25 s** worked cleanly with almost no visible sync lag on the author's HomePod, even though that link was losing around 15 % of packets (every one was resent in time). Start there for video. **Auto** is deliberately cautious and may pick a longer value than you need, so if Auto feels laggy, pick a fixed value.
+- **0.25 s** worked cleanly with almost no visible sync lag on the author's HomePod mini, even though that link was losing around 15 % of packets (every one was resent in time). Start there for video. **Auto** is deliberately cautious and may pick a longer value than you need, so if Auto feels laggy, pick a fixed value.
 - If you hear crackle or dropouts, step up (0.50 → 0.75 → 1.00 s).
 - For music only, a higher value is fine and the most robust.
 - Your result depends on your Wi-Fi. A speaker close to the router, or the router on a quiet channel, helps more than any setting.
@@ -84,19 +84,19 @@ Latency is how long the speaker waits before playing, and it is also its safety 
 ## FAQ: AirPlay from Windows to a HomePod
 
 ### Can Windows AirPlay to a HomePod?
-Windows has no system-wide AirPlay audio output. AirplayFox is a small tray app that sends the PC's system audio (anything the PC plays) to a HomePod over AirPlay 2. It was tested on one HomePod from Windows 10.
+Windows has no system-wide AirPlay audio output. AirplayFox is a small tray app that sends the PC's system audio (anything the PC plays) to a HomePod over AirPlay 2. It was tested on one HomePod mini from Windows 10.
 
 ### Do I need iTunes, Bonjour or a virtual audio cable?
 No. Discovery uses mDNS built into the app and audio is captured with WASAPI loopback. No driver is installed.
 
 ### Does it work with other AirPlay 2 speakers?
-Unknown. Only a HomePod was tested. Speakers that accept HomeKit transient pairing might work. Reports are welcome through the speaker compatibility issue template.
+Unknown. Only a HomePod mini was tested; the full-size HomePod has not been. Speakers that accept HomeKit transient pairing might work. Reports are welcome through the speaker compatibility issue template.
 
 ### Does it work on Windows 11?
 Not tested. It was tested on Windows 10 only.
 
 ### How do I fix lip-sync when watching video over AirPlay?
-Set the latency (0.00-4.00 s) from the tray menu. On the author's HomePod, 0.25 s worked cleanly; your result depends on your Wi-Fi.
+Set the latency (0.00-4.00 s) from the tray menu. On the author's HomePod mini, 0.25 s worked cleanly; your result depends on your Wi-Fi.
 
 ### Does it work on macOS or Linux, or with ALAC?
 No. Windows only, and audio is sent as uncompressed PCM (no ALAC yet).
@@ -150,7 +150,7 @@ WASAPI loopback ─▶ RateConverter ─▶ PcmRing ─▶ PacketPump ─▶ RTP
 | | |
 |---|---|
 | PC | Windows 10 Pro (build 19045), wired Ethernet |
-| Speaker | A HomePod on Wi-Fi (model and firmware version not recorded) |
+| Speaker | HomePod mini, on Wi-Fi (firmware version not recorded) |
 | Last checked | 2026-10-06, v1.0.0 |
 
 Written and maintained by Pritesh Kedar. Compatibility reports for other speakers and Windows versions are welcome through the [issue templates](https://github.com/priteshkedar789/airplay-fox/issues/new/choose).
@@ -158,7 +158,7 @@ Written and maintained by Pritesh Kedar. Compatibility reports for other speaker
 ## Limitations
 
 - Windows only. Audio is sent as uncompressed PCM (no ALAC yet).
-- The audio-quality results above are judged by ear on one HomePod and one Wi-Fi network; the automated checks cover what is *sent*, not what is *heard*.
+- The audio-quality results above are judged by ear on one HomePod mini and one Wi-Fi network; the automated checks cover what is *sent*, not what is *heard*.
 - AirPlay 2 is reverse-engineered; a firmware update can break senders like this one.
 - Unsigned binaries (SmartScreen warning).
 

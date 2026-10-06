@@ -5,7 +5,7 @@ Bug reports, speaker-compatibility reports and small pull requests are welcome.
 ## Reporting
 
 - **Bug:** use the bug report template and attach `%APPDATA%\AirplayFox\airplayfox.log`.
-- **Does it work with my speaker?** Only one HomePod has been tested. Use the speaker compatibility template and include the model and firmware version, working or not.
+- **Does it work with my speaker?** Only one HomePod mini has been tested. Use the speaker compatibility template and include the model and firmware version, working or not.
 
 ## Build and test
 

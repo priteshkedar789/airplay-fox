@@ -7,7 +7,7 @@ All notable changes to this project are documented here. The format follows [Kee
 First release.
 
 ### Added
-- Windows tray app that streams system audio to a HomePod over AirPlay 2 (tested on one HomePod from Windows 10; other AirPlay 2 speakers untested).
+- Windows tray app that streams system audio to a HomePod over AirPlay 2 (tested on one HomePod mini from Windows 10; other AirPlay 2 speakers untested).
 - Adjustable latency from 0.00 to 4.00 s: presets, a custom value, or Auto (measures your Wi-Fi at connect).
 - Separate capture and send threads, precise packet pacing and per-packet clock-drift correction.
 - Saved speaker volume (default 33 %), never forced to 100 %.
