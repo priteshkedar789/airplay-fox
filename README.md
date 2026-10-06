@@ -4,7 +4,7 @@
 
 No iTunes, no Apple software, no virtual audio cable and no driver to install. Tested on one HomePod mini from Windows 10; other AirPlay 2 speakers are untested.
 
-**[Download the latest release for Windows](https://github.com/priteshkedar789/airplay-fox/releases/latest)** (zip, unsigned: Windows SmartScreen will warn, see the install steps below). Free and MIT-licensed.
+**[Download the latest release for Windows](https://github.com/priteshkedar789/airplay-fox/releases/latest)** (zip, unsigned: Windows SmartScreen will warn, see the install steps below). Free and MIT-licensed. If it's useful to you, you can [buy me a coffee](#-buy-me-a-coffee) (QR codes, one-tap copy).
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Platform: Windows 10](https://img.shields.io/badge/platform-Windows%2010%20(tested)-informational)
@@ -176,13 +176,38 @@ Apple, AirPlay and HomePod are trademarks of Apple Inc. This project is not affi
 
 ## ☕ Buy me a coffee
 
-AirplayFox is free and built in spare time. If it saved you from a cable or a subscription and you'd like to say thanks, you can send a tip:
+AirplayFox is free and built in spare time. If it saved you from a cable or a subscription and you'd like to say thanks, **scan a QR code with your wallet app**, or tap the copy button on an address:
 
-| Coin | Address |
-|---|---|
-| **BTC** (Bitcoin) | `bc1q730l0j6xnvfvvhkrgzg9ytjul6eyv8pv6lg76w` |
-| **BNB** | `0xd43C5a3662f7B2620161c4600A1dDf26545c4Db9` |
-| **SOL** (Solana) | `3wL2Fj7Xmh28khWtHaF5jtSegD1pmkj3yorHWjGbLNEf` |
-| **TRX** (Tron) | `TXoumqAU8FASfnoEgWmPedS9zg9K9PNuxd` |
+### Bitcoin (BTC)
 
-Double-check the address and network before sending. A ⭐ on the repo helps just as much. Thank you!
+<img src="docs/qr-btc.png" alt="QR code for the Bitcoin (BTC) tip address" width="170">
+
+```
+bc1q730l0j6xnvfvvhkrgzg9ytjul6eyv8pv6lg76w
+```
+
+### BNB
+
+<img src="docs/qr-bnb.png" alt="QR code for the BNB tip address" width="170">
+
+```
+0xd43C5a3662f7B2620161c4600A1dDf26545c4Db9
+```
+
+### Solana (SOL)
+
+<img src="docs/qr-sol.png" alt="QR code for the Solana (SOL) tip address" width="170">
+
+```
+3wL2Fj7Xmh28khWtHaF5jtSegD1pmkj3yorHWjGbLNEf
+```
+
+### Tron (TRX)
+
+<img src="docs/qr-trx.png" alt="QR code for the Tron (TRX) tip address" width="170">
+
+```
+TXoumqAU8FASfnoEgWmPedS9zg9K9PNuxd
+```
+
+Double-check the address and network in your wallet before sending. A ⭐ on the repo helps just as much. Thank you!
