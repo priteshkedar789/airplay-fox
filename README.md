@@ -92,7 +92,7 @@ pip install numpy
 python tools/analyze_sent.py sent.wav        # with a steady test tone playing: counts clicks in exactly what was sent
 ```
 
-`AirplayFox.exe` is a windowed app, so `--cli` prints to the log (`%APPDATA%\AirplayFoxirplayfox.log`) rather than the console; redirect its output (`> out.txt`) if you want it on screen.
+`AirplayFox.exe` is a windowed app, so `--cli` prints to the log (`%APPDATA%\AirplayFox\airplayfox.log`) rather than the console; redirect its output (`> out.txt`) if you want it on screen.
 
 ## How it works
 
