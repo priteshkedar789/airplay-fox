@@ -1,15 +1,16 @@
-# AirplayFox
+# AirplayFox: stream Windows audio to a HomePod (AirPlay 2 sender for Windows)
 
-**Stream your Windows PC's audio to a HomePod (or another AirPlay 2 speaker) from a fox in the system tray.**
-Whatever your PC plays — YouTube, Spotify, games, calls — comes out of the speaker, with a latency you control down to a quarter of a second.
+**AirplayFox is a free, open-source Windows tray app that plays your PC's system audio on a HomePod over AirPlay 2.** Whatever the PC plays (YouTube, Spotify, games, calls) comes out of the speaker, with a latency you set between 0 and 4 seconds.
 
-No iTunes, no Apple software, no virtual audio cable and no driver to install. One small tray app.
+No iTunes, no Apple software, no virtual audio cable and no driver to install. Tested on one HomePod from Windows 10; other AirPlay 2 speakers are untested.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Platform: Windows 10/11](https://img.shields.io/badge/platform-Windows%2010%2F11-informational)
 ![.NET 8](https://img.shields.io/badge/.NET-8-512BD4)
+[![Latest release](https://img.shields.io/github/v/release/priteshkedar789/airplay-fox)](https://github.com/priteshkedar789/airplay-fox/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/priteshkedar789/airplay-fox/total)](https://github.com/priteshkedar789/airplay-fox/releases)
 
-## Features
+## Features: Windows to HomePod audio streaming
 
 - **Tray-only app** — right-click the fox: pick a speaker, set latency, set speaker volume. Double-click to connect/disconnect.
 - **Adjustable latency, 0.00 – 4.00 s** — presets (0, 0.10, 0.25, 0.50, 0.75, 1.00 s), a custom box with two-decimal precision, or **Auto**, which measures your Wi-Fi when you connect.
@@ -19,11 +20,11 @@ No iTunes, no Apple software, no virtual audio cable and no driver to install. O
 - **Optional "mute this PC's speakers while streaming"** — so you don't hear the PC and the speaker half a second apart.
 - Follows the Windows default output device and restarts capture if you change it.
 
-Tested against a HomePod from a Windows 10 PC. Other AirPlay 2 speakers that accept HomeKit *transient* pairing should work but are untested.
+Tested against a HomePod from a Windows 10 PC. Other AirPlay 2 speakers that accept HomeKit *transient* pairing may work but have not been tested.
 
-## Install
+## Download and install (Windows 10/11, no iTunes)
 
-1. Open the [latest release](../../releases/latest) and download one of:
+1. Open the [latest release](https://github.com/priteshkedar789/airplay-fox/releases/latest) and download one of:
    - `AirplayFox-…-win-x64-selfcontained.zip` — **easiest**, nothing else to install (larger download).
    - `AirplayFox-…-win-x64.zip` — small download; needs the [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0).
 2. Unzip anywhere and run `AirplayFox.exe`.
@@ -36,7 +37,7 @@ Check the download against `SHA256SUMS.txt` from the release if you like:
 Get-FileHash .\AirplayFox-*.zip -Algorithm SHA256
 ```
 
-## Use it
+## How to AirPlay from Windows to a HomePod
 
 1. Start `AirplayFox.exe`. A fox appears in the system tray (click the `^` near the clock if you don't see it; drag it onto the taskbar to keep it visible).
 2. Right-click the fox → **Speakers** → choose your HomePod. The fox turns colour when audio is streaming (grey = not connected).
@@ -53,7 +54,7 @@ Get-FileHash .\AirplayFox-*.zip -Algorithm SHA256
 
 Settings are saved in `%APPDATA%\AirplayFox\settings.json`.
 
-### Choosing a latency
+### Choosing an AirPlay audio latency (0-4 s)
 
 Latency is how long the speaker waits before playing, and it is also its safety margin: if a Wi-Fi packet is lost, the speaker asks for it again, and the resend must arrive before the speaker needs it. Lower = snappier but less margin.
 
@@ -62,7 +63,7 @@ Latency is how long the speaker waits before playing, and it is also its safety 
 - For music only, a higher value is fine and the most robust.
 - Your result depends on your Wi-Fi. A speaker close to the router, or the router on a quiet channel, helps more than any setting.
 
-## Troubleshooting
+## Troubleshooting: HomePod not listed, no sound, crackling
 
 - **No speaker listed** — PC and speaker must be on the same network/subnet; set your network profile to *Private*; wait ~10 s for discovery.
 - **Connected but silent** — make sure something is actually playing on the *default* Windows output device; turn off *Mute this PC's speakers*; check the speaker volume in the menu.
@@ -70,6 +71,29 @@ Latency is how long the speaker waits before playing, and it is also its safety 
 - **Fox shows but menu says "Reconnecting"** — the speaker stopped answering; it retries with backoff. See the log.
 - **Nothing happens when I start it** — it is a tray app and only one copy runs at a time; the fox from the first start is probably already in the tray (check the `^` overflow).
 - **Anything else** — attach `%APPDATA%\AirplayFox\airplayfox.log` to an issue.
+
+## FAQ
+
+**Can Windows AirPlay to a HomePod?**
+Windows has no built-in AirPlay audio sender. AirplayFox is a small tray app that sends the PC's system audio to a HomePod over AirPlay 2. It was tested on one HomePod from Windows 10.
+
+**Do I need iTunes, Bonjour or a virtual audio cable?**
+No. Discovery uses mDNS built into the app and audio is captured with WASAPI loopback. No driver is installed.
+
+**Does it work with other AirPlay 2 speakers?**
+Unknown. Only a HomePod was tested. Speakers that accept HomeKit transient pairing might work.
+
+**Can I fix lip-sync when watching video?**
+Set the latency (0.00-4.00 s) from the tray menu. On the author's HomePod, 0.25 s worked cleanly; your result depends on your Wi-Fi.
+
+**Does it work on macOS or Linux, or with ALAC?**
+No. Windows only, and audio is sent as uncompressed PCM (no ALAC yet).
+
+**Is it safe? Why the SmartScreen warning?**
+The binaries are unsigned. The source is MIT-licensed and the release includes SHA256SUMS.txt so you can verify the download or build from source.
+
+**Is it affiliated with Apple?**
+No. See the trademark notice under Credits.
 
 ## Build from source
 
@@ -94,7 +118,7 @@ python tools/analyze_sent.py sent.wav        # with a steady test tone playing: 
 
 `AirplayFox.exe` is a windowed app, so `--cli` prints to the log (`%APPDATA%\AirplayFox\airplayfox.log`) rather than the console; redirect its output (`> out.txt`) if you want it on screen.
 
-## How it works
+## How it works (AirPlay 2 / RAOP sender internals)
 
 ```
 WASAPI loopback ─▶ RateConverter ─▶ PcmRing ─▶ PacketPump ─▶ RTP + ChaCha20 ─▶ speaker
